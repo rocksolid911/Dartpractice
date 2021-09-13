@@ -28,4 +28,15 @@ class DataProvider {
     return type_homework;
   }
 
+   Future<List<Assignment>> portfolio() async {
+    //final String response = jclas().jsa();
+    JsonDemo jsonDemo = await readjson();
+
+    type_portfolio = jsonDemo.assignments
+        .where((e) => e.s40AssignmentType == "Port Folio")
+        .toList();
+    print("no of portfolio : ${type_portfolio.length}");
+    return type_portfolio;
+  }
+
 }
